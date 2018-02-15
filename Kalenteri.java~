@@ -1,0 +1,121 @@
+package kalenteri;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.IOException;
+
+//Käyttäjän kanssa kommunikoiva luokka
+public class Kalenteri {
+  private Tietokanta tietokanta;
+
+  private Scanner lukija = new Scanner(System.in);
+
+  //muotoilee ajan luettavaan muotoon
+  public static DateTimeFormatter muotoileAika = DateTimeFormatter.ofPattern("M/d/y HH:mm");
+//kesken: laitetaan aika mieluummin ehkä muotoon (päivä.kuukausi.vuosi tunti:minuutti) esim 15.2.2018 18:00 eikä 2/15/2018 18:00
+    
+  //muotoilee ajan (vain päivämäärän, ei kellonaikaa) luettavaan muotoon.
+  public static DateTimeFormatter muotoileAikaPäiväys = DateTimeFormatter.ofPattern("M/d/y");
+//kesken: sama ongelma tässäkin
+
+  //Konstruktori kalenteri-oliolle, luodaan uusi tietokanta uutta kalenteria luotaessa
+    public Kalenteri() {
+        tietokanta = new Tietokanta();
+    }
+    
+    /**
+     * Palauttaa käyttäjältä kysytyn päivämäärän ja ajan
+     * @return Käyttäjän syöttämä validi päivämäärä ja aika
+     */
+    private LocalDateTime lueAika() {
+        System.out.println("Syötä  päivämäärä ja aika muodossa kk/päivä/vuosi tunti:min");
+        
+        LocalDateTime aika;
+        try {
+            aika = LocalDateTime.parse(lukija.nextLine(), muotoileAika);
+        }
+        catch (DateTimeParseException e) {
+            System.out.println("Tapahtui virhe, syötä päivämäärä ja aika uudelleen muodossa kk/päivä/vuosi tunti:min");
+            //Kysytään päiväm ja aika uudelleen
+            return lueAika();
+        }
+        return aika;
+    }
+
+    /**
+     * Palauttaa käyttäjältä pyydetyn päiväyksen
+     * @return Käyttäjän syöttämä päiväys
+     */
+    private LocalDate lueAikaPaivays() {
+        System.out.println("Syötä päivämäärä muodossa kk/päivä/vuosi");
+        LocalDate aikaPaivays;
+        try {
+            aikaPaivays = LocalDate.parse(lukija.nextLine(), MuotoileAikaPaivays);
+        }
+        catch (DateTimeParseException e) {
+            System.out.println("Tapahtui virhe, syötä päivämäärä uudelleen muodossa kk/päivä/vuosi");
+            return lueAikaPaicays();
+        }
+        return aikaPaivays;
+    }
+    
+    /**
+     * Tulostaa kaikki annetun päivämäärän tapahtumat
+     * @param day 
+     */
+    public void tulostaTapahtumat(LocalDate aikaPaivays) {
+        ArrayList<Tapahtuma> tapahtumat = tietokanta.etsiPaivayksia(aikaPaivays.atStartOfDay());
+        for (Tapahtuma tapahtuma : tapahtumat) {
+            System.out.println(tapahtuma);
+        }
+    }
+    //kesken: voisi tulostaa järjestyksessä tapahtuman kellonajan mukaan, ja samalla näyttää tapahtuman kellonajan sen vieressä tulostettaessa
+    
+    //Pyytää käyttäjää syöttämään uuden tapahtuman ja lisää sen tietokantaan
+    public void lisaaTapahtuma()throws IOException{
+        LocalDateTime aikaPaivays = lueAikaPaivays();
+        System.out.println("Syötä tapahtuman nimi: ");
+        String nimi = lukija.nextLine();
+        tietokanta.lisaaTapahtuma(aika, nimi);
+    }
+    //kesken: pitää lisätä myös ne tapahtumaan liityvät muistiinpanot
+   
+    //Käyttäjä voi metodin avulla etsiä tapahtumia halutulta päiväykseltä
+    public void etsiTapahtumia() {
+
+        LocalDateTime aika = readDate().atStartOfDay();
+        ArrayList<Tapahtuma> tapahtumat = tietokanta.etsiTapahtumia(aika);
+
+        if (tapahtumia.size() > 0) {
+            System.out.println("Löydetyt tapahtumat: ");
+            for (Tapahtuma tapahtuma : tapahtumat) {
+                System.out.println(tapahtuma);
+            }
+        } else {
+            System.out.println("Tapahtumia ei löytynyt annetulle päiväykselle");
+        }
+        lukija.nextLine(); // Enter
+    }
+    
+       //Anataa käyttäjän poistaa tapahtumia halutulta päivältä
+    public void poistaTapahtumia() {
+        System.out.println("Annetulle päivälle lisätyt tapahtuman poistetaan");
+        LocalDateTime aika = lueAika();
+        tietokanta.poistaTapahtumia(aika);
+    }
+    
+     //Tulostetaan ohjelman alkuvalikko
+    public void tulostaAlkuvalikko() {
+        System.out.println("\nKalenteri");
+        System.out.println("Tänään on: " + LocalDateTime.now().format(muotoileAika)+"\n");
+        System.out.println("Päivän tapahtumat:\n------");
+        tulostaTapahtumat(LocalDate.now()+"\n");
+        System.out.println("Huomisen tapahtumat:\n---------");
+        tulostaTapahtumat(LocalDate.now().plusDays(1)+"\n");
+    }
+    
+}
