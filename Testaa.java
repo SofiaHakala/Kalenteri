@@ -5,23 +5,23 @@ import java.util.Scanner;
 public class Testaa {
   
   /**
-   * kesken olevaa:
-   * - kun tapahtumia etsitään (etsiTapahtumia()), ohjelman ei pitäisi käyttää "tapahtumat" listaa (ei säily ohjelman sulkeuduttua), 
-   * vaan etsiä "tapahtumat"-kansiosta tiedostoja. 
-   * ohjelma voisi tallentaa tiedoston ekalle riville päivämäärän oikeassa muodossa. ohjelma siis lukisi kaikkien kansiosta löytyvien 
-   * tiedostojen ekan rivn ja vertailisi sitä etsittävään päivämäärään.
-   * - muisiinpanoja ei olla toteutettu ollenkaan. eli ne tulisi tallentaa myös tiedostoon (jonka nimi on siis tapahtuman nimi)
-   * - olisi ihan kiva ominaisuus voida muokata tapahtuman nimeä (tiedoston nimeä) ja muistiinpanoja (tiedoston sisältöä)
-   * - joidenkin toimintojen valitsemista voisi tehdä jouhevammaksi. esim. riippuvuus enter-näppäimeen.
-   * - päiväysten muodot. eli nyt päiväykset ovat muodossa mm/dd/yy, mitä ei suomessa paljoa käytetä.
-   * - virhedenkäsittelyä voitaisiin myös vähän hienosäätää
-   * - joissain luokissa taisi olla turhia import-lauseita jotka voisi poistaa (tai en ole oikeastaan tarkistanut)
-   * - poista tapahtumia-ominaisuus ei näytä toimivan, en ole paljoa ehtinyt sitä muuttaa vanhasta ohjelmasta mistä tuon otin. 
-   * pitäisi siis voida poistaa tapahtumia päivämäärän syöttämällä. myös tapahtumasta tehty tiedosto pitäisi poistaa.
-   * pari muuta ominaisuutta pitäisi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan. eli ne, joiden pitäisi pystyä hakemaan 
+   * Kesken olevaa:
+   * - Kun tapahtumia etsitään (etsiTapahtumia()), ohjelman ei pitäisi käyttää "tapahtumat" listaa (ei säily ohjelman sulkeuduttua), 
+   * vaan etsiä "tapahtumat"-kansiosta tiedostoja. Ohjelma voisi vaikka tallentaa tiedoston ekalle riville päivämäärän oikeassa 
+   * muodossa. Ohjelma siis lukisi kaikkien kansiosta löytyvien tiedostojen ekan rivn ja vertailisi sitä etsittävään päivämäärään.
+   * - Muisiinpanoja ei olla toteutettu ollenkaan. eli ne tulisi tallentaa myös tiedostoon (jonka nimi on siis tapahtuman nimi)
+   * - Olisi ihan kiva ominaisuus voida muokata tapahtuman nimeä (tiedoston nimeä) ja muistiinpanoja (tiedoston sisältöä)
+   * - Joidenkin toimintojen valitsemista voisi tehdä jouhevammaksi. esim. riippuvuus enter-näppäimeen.
+   * - Päiväysten muodot. eli nyt päiväykset ovat muodossa mm/dd/yy, mitä ei suomessa paljoa käytetä.
+   * - Virhedenkäsittelyä voitaisiin myös vähän hienosäätää
+   * - Joissain luokissa taisi olla turhia import-lauseita jotka voisi poistaa (tai en ole oikeastaan tarkistanut)
+   * - Poista tapahtumia-ominaisuus ei näytä toimivan, en ole paljoa ehtinyt sitä muuttaa vanhasta ohjelmasta mistä tuon otin. 
+   * Pitäisi siis voida poistaa tapahtumia päivämäärän syöttämällä. Myös tapahtumasta tehty tiedosto pitäisi poistaa.
+   * Pari muuta ominaisuutta pitäisi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan. Eli ne, joiden pitäisi pystyä hakemaan 
    * tietoa tapahtumista ohjelman sulkemisenkin jälkeen.
-   * - "tapahtumat" alikansion automaattinen luonti pitäisi tehdä. ja tarkistaa onko kansio jo olemassa yms.
-   * - jotain muutakin muutettavaa on kai, lisäillään tänne sitten
+   * - "tapahtumat"-alikansion automaattinen luonti pitäisi tehdä. ja tarkistaa onko kansio jo olemassa yms.
+   * - Dokumentoinnin muuttaminen selkeämmäksi ennen työn palautusta
+   * - Jotain muutakin muutettavaa on kai, lisäillään tänne sitten
    * */
 
     public static void main(String[] args) throws IOException{
