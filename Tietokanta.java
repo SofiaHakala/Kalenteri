@@ -15,32 +15,33 @@ import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-//kesken: muutokset LocalDateTime (p‰iv‰m ja kellonaika) ja LocalDate (vain p‰iv‰m) olioiden v‰lill‰.
-//esim tapahtumaa lis‰tess‰ ja luettaessa halutaan tiet‰‰ sen kellonaika ja p‰iv‰ys, mutta kellonaikaa ei tarvitse syˆtt‰‰ tapahtumia haettaessa tai poistettaessa
+//kesken: muutokset LocalDateTime (p√§iv√§m ja kellonaika) ja LocalDate (vain p√§iv√§m) olioiden v√§lill√§.
+//esim tapahtumaa lis√§tess√§ ja luettaessa halutaan tiet√§√§ sen kellonaika ja p√§iv√§ys, mutta kellonaikaa ei tarvitse sy√∂tt√§√§ tapahtumia haettaessa tai poistettaessa
 
 
 //Tietokanta kalenterille
 public class Tietokanta{
-  //Lista, joka sis‰lt‰‰ kaikki kalenteriin lis‰tyt tapahtuma-oliot
+  //Lista, joka sis√§lt√§√§ kaikki kalenteriin lis√§tyt tapahtuma-oliot
   private ArrayList<Tapahtuma> tapahtumat;
 
-  //Konstruktori. Uutta tietokantaa luodessa luodaan samalla uusi tapahtuma-olioita sis‰lt‰v‰ lista
+  //Konstruktori. Uutta tietokantaa luodessa luodaan samalla uusi tapahtuma-olioita sis√§lt√§v√§ lista
   public Tietokanta() {
     tapahtumat = new ArrayList<>();
   }
 
     /**
-     * Lis‰‰ uuden tapahtuman listaan ja luo uuden tiedoston tapahtuman nimell‰
-     * @param aika Tapahtuman p‰iv‰ys ja kellonaika
+     * Lis√§√§ uuden tapahtuman listaan ja luo uuden tiedoston tapahtuman nimell√§
+     * @param aika Tapahtuman p√§iv√§ys ja kellonaika
      * @param nimi Tapahtuman nimi
      */
   public void lisaaTapahtuma(LocalDateTime aika, String nimi) throws IOException{
     tapahtumat.add(new Tapahtuma(aika, nimi));
     
+    //huom: jos sovellukseen kuuluvat .java-tiedostot ovat kansiossa "kalenteri", tapahtuma-tiedostot tallennetaan 
+    //alakansioon "tapahtumat".
     Path polku = Paths.get("kalenteri/tapahtumat/"+nimi+".txt");
     BufferedWriter w = new BufferedWriter(new FileWriter("kalenteri/tapahtumat/"+nimi+".txt"));
-    
-    //kesken: pit‰‰ lis‰t‰ tiedoston sis‰lle kirjoitus. pit‰‰ muuttaa myˆs esim. parametrit
+    //kesken: pit√§√§ lis√§t√§ tiedoston sis√§lle kirjoitus. pit√§√§ muuttaa my√∂s esim. parametrit
     
     w.write(nimi);
     w.flush();
@@ -49,8 +50,8 @@ public class Tietokanta{
     
     /**
      * Etsii tapahtuma-olioita annetun ajan perusteella.
-     * @param aika Tapahtuman p‰iv‰ys
-     * @return Annetulle p‰iv‰ykselle lˆydetyt tapahtumat
+     * @param aika Tapahtuman p√§iv√§ys
+     * @return Annetulle p√§iv√§ykselle l√∂ydetyt tapahtumat
      */
   public ArrayList<Tapahtuma> etsiTapahtumia(LocalDateTime aika) {
     ArrayList<Tapahtuma> loydetyt = new ArrayList<>();
@@ -64,7 +65,7 @@ public class Tietokanta{
     
     /**
      * Poistaa tapahtuman annetun ajan perusteella
-     * @param aika Tapahtuman p‰iv‰ys
+     * @param aika Tapahtuman p√§iv√§ys
      */
     public void poistaTapahtumia(LocalDateTime aika) {
  ArrayList<Tapahtuma> loydetty = etsiTapahtumia(aika);
