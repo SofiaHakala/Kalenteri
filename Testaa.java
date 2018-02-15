@@ -16,6 +16,8 @@ public class Testaa {
    * -virhedenkäsittelyä voitaisiin myös vähän hienosäätää
    * -joissain luokissa taisi olla turhia import-lauseita jotka voisi poistaa
    * -poista tapahtumia-ominaisuus ei näytä toimivan, en ole paljoa ehtinyt sitä muuttaa vanhasta ohjelmasta mistä tuon otin. pitäisi siis voida poistaa tapahtumia päivämäärän syöttämällä
+   * myös tapahtumasta tehty tiedosto pitäisi poistaa.
+   * pari muuta ominaisuutta pitäisi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan.
    * -jotain muutakin muutettavaa on kai, lisäillään tänne sitten
    * */
 
