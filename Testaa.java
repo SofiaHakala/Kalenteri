@@ -17,9 +17,9 @@ public class Testaa {
    * - Joissain luokissa taisi olla turhia import-lauseita jotka voisi poistaa (tai en ole oikeastaan tarkistanut)
    * - Poista tapahtumia-ominaisuus ei näytä toimivan, en ole paljoa ehtinyt sitä muuttaa vanhasta ohjelmasta mistä tuon otin. 
    * Pitäisi siis voida poistaa tapahtumia päivämäärän syöttämällä. Myös tapahtumasta tehty tiedosto pitäisi poistaa.
-   * Pari muuta ominaisuutta pitäisi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan. Eli ne, joiden pitäisi pystyä hakemaan 
+   * - Pari muuta ominaisuutta pitäisi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan. Eli ne, joiden pitäisi pystyä hakemaan 
    * tietoa tapahtumista ohjelman sulkemisenkin jälkeen.
-   * - "tapahtumat"-alikansion automaattinen luonti pitäisi tehdä. ja tarkistaa onko kansio jo olemassa yms.
+   * - "tapahtumat"-alikansion automaattinen luonti pitäisi tehdä, ja myös tarkistaa onko kansio jo olemassa yms.
    * - Dokumentoinnin muuttaminen selkeämmäksi ennen työn palautusta
    * - Jotain muutakin muutettavaa on kai, lisäillään tänne sitten
    * */
