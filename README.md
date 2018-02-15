@@ -3,8 +3,8 @@ Sovellus tapahtumien ja muistiinpanojen lisäykseen eri päivämäärille
 
 Huom: Jos sovellukseen kuuluvat .java-tiedostot ovat kansiossa "kalenteri", tapahtuma-tiedostot tallennetaan  alakansioon "tapahtumat". Ohjelma ei osaa vielä(!) luoda tätä kansiota automaattisesti, joten se täytyy käydä tekemässä itse ennen ohjelman suoritusta.
 
-
 Ohjelman luokat lyhyesti:\
+
 Luokka Kalenterin\
   -Sisältää ohjelman käytettävyyteen liittyviä metodeja, esimerkiksi tulostaAlkuvalikko().\
   -Metodit tarkistavat käyttäjän syötteen ja kutsuvat vastaavaa metodia toisessa luokassa, esimerkiksi luokan Tietokanta lisääTapahtuma()-metodia. Metodeista saatu tieto tulostetaan \käyttäjälle.\
