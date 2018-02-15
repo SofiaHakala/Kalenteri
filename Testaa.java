@@ -9,7 +9,7 @@ public class Testaa {
    * - Kun tapahtumia etsitään (etsiTapahtumia()), ohjelman ei pitäisi käyttää "tapahtumat" listaa (ei säily ohjelman sulkeuduttua), 
    * vaan etsiä "tapahtumat"-kansiosta tiedostoja. Ohjelma voisi vaikka tallentaa tiedoston ekalle riville päivämäärän oikeassa 
    * muodossa. Ohjelma siis lukisi kaikkien kansiosta löytyvien tiedostojen ekan rivn ja vertailisi sitä etsittävään päivämäärään.
-   * - Muisiinpanoja ei olla toteutettu ollenkaan. eli ne tulisi tallentaa myös tiedostoon (jonka nimi on siis tapahtuman nimi)
+   * - Muisiinpanoja ei olla toteutettu ollenkaan. Eli ne tulisi tallentaa myös tiedostoon (jonka nimi on siis tapahtuman nimi)
    * - Olisi ihan kiva ominaisuus voida muokata tapahtuman nimeä (tiedoston nimeä) ja muistiinpanoja (tiedoston sisältöä)
    * - Joidenkin toimintojen valitsemista voisi tehdä jouhevammaksi. esim. riippuvuus enter-näppäimeen.
    * - Päiväysten muodot. eli nyt päiväykset ovat muodossa mm/dd/yy, mitä ei suomessa paljoa käytetä.
