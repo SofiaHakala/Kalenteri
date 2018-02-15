@@ -23,7 +23,7 @@ public class Testaa {
 
     public static void main(String[] args) throws IOException{
         Scanner lukija = new Scanner(System.in);
-        // kalenteri instance
+      
         Kalenteri kalenteri = new Kalenteri();
         String vaihtoehto = "0";
         // main loop
