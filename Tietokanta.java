@@ -15,7 +15,6 @@ import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-//kesken: muutokset LocalDateTime (päiväm ja kellonaika) ja LocalDate (vain päiväm) olioiden välillä.
 //esim tapahtumaa lisätessä ja luettaessa halutaan tietää sen kellonaika ja päiväys, mutta kellonaikaa ei tarvitse syöttää tapahtumia haettaessa tai poistettaessa
 
 
