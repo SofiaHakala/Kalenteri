@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 //huom: LocalDateTime: päivämäärä ja kellonaika
-//      LocalDateTime: vain päivämäärä
+//      LocalDate: vain päivämäärä
 
 
 //Tietokanta kalenterille
