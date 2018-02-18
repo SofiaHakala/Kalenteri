@@ -15,7 +15,8 @@ import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-//esim tapahtumaa lisätessä ja luettaessa halutaan tietää sen kellonaika ja päiväys, mutta kellonaikaa ei tarvitse syöttää tapahtumia haettaessa tai poistettaessa
+//huom: LocalDateTime: päivämäärä ja kellonaika
+//      LocalDateTime: vain päivämäärä
 
 
 //Tietokanta kalenterille
