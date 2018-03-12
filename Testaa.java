@@ -1,57 +1,45 @@
 package kalenteri;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Testaa {
   
   /**
-   * Kesken olevaa:
-   * - Kun tapahtumia etsit√§√§n (etsiTapahtumia()), ohjelman ei pit√§isi k√§ytt√§√§ "tapahtumat" listaa (ei s√§ily ohjelman sulkeuduttua), 
-   * vaan etsi√§ "tapahtumat"-kansiosta tiedostoja. Ohjelma voisi vaikka tallentaa tiedoston ekalle riville p√§iv√§m√§√§r√§n oikeassa 
-   * muodossa. Ohjelma siis lukisi kaikkien kansiosta l√∂ytyvien tiedostojen ekan rivn ja vertailisi sit√§ etsitt√§v√§√§n p√§iv√§m√§√§r√§√§n.
-   *
-   * - Muisiinpanoja ei olla toteutettu ollenkaan. Eli ne tulisi tallentaa my√∂s tiedostoon (jonka nimi on siis tapahtuman nimi)
-   *
-   * - Olisi ihan kiva ominaisuus voida muokata tapahtuman nime√§ (tiedoston nime√§) ja muistiinpanoja (tiedoston sis√§lt√∂√§)
-   *
-   * - Joidenkin toimintojen valitsemista voisi tehd√§ jouhevammaksi. esim. riippuvuus enter-n√§pp√§imeen.
-   *
-   * - P√§iv√§ysten muodot. eli nyt p√§iv√§ykset ovat muodossa mm/dd/yy, mit√§ ei suomessa paljoa k√§ytet√§.
-   *
-   * - Virhedenk√§sittely√§ voitaisiin my√∂s v√§h√§n hienos√§√§t√§√§
-   *
-   * - Joissain luokissa taisi olla turhia import-lauseita jotka voisi poistaa (tai en ole oikeastaan tarkistanut)
-   *
-   * - Poista tapahtumia-ominaisuus ei n√§yt√§ toimivan, en ole paljoa ehtinyt sit√§ muuttaa vanhasta ohjelmasta mist√§ tuon otin. 
-   * Pit√§isi siis voida poistaa tapahtumia p√§iv√§m√§√§r√§n sy√∂tt√§m√§ll√§. My√∂s tapahtumasta tehty tiedosto pit√§isi poistaa.
-   *
-   * - Pari muuta ominaisuutta pit√§isi saada toimimaan ilman riippuvuutta "tapahtumat"-listaan. Eli ne, joiden pit√§isi pysty√§ hakemaan 
-   * tietoa tapahtumista ohjelman sulkemisenkin j√§lkeen.
-   *
-   * - "tapahtumat"-alikansion automaattinen luonti pit√§isi tehd√§, ja my√∂s tarkistaa onko kansio jo olemassa yms.
-   *
-   * - Dokumentoinnin muuttaminen selke√§mm√§ksi ennen ty√∂n palautusta
-   *
-   * - Jotain muutakin muutettavaa on kai, lis√§ill√§√§n t√§nne sitten
+   * kesken olevaa:
+   * -kun tapahtumia etsit‰‰n, ohjelman ei pit‰isi k‰ytt‰‰ "tapahtumat" listaa (ei s‰ily ohjelman sulkeuduttua), vaan etsi‰ "tapahtumat"-kansiosta tiedostoja. 
+   * ohjelma voisi tallentaa tiedoston ekalle riville p‰iv‰m‰‰r‰n oikeassa muodossa. ohjelma siis lukisi kaikkien kansiosta lˆytyvien tiedostojen ekan rivin
+   * ja vertailisi sit‰ etsitt‰v‰‰n p‰iv‰m‰‰r‰‰n.
+   * -muisiinpanoja ei olla toteutettu ollenkaan. eli ne tulisi tallentaa myˆs tiedostoon (jonka nimi on siis tapahtuman nimi)
+   * -olisi ihan kiva ominaisuus voida muokata tapahtuman nime‰ (tiedoston nime‰) ja muistiinpanoja (tiedoston sis‰ltˆ‰)
+   * -jotenkin toimintojen valitsemista voisi tehd‰ jouhevammaksi. esim. se, ett‰ enteri‰ on pakko aina painaa voitaisiin ehk‰ vain poistaa? vai olisiko ehk‰ ihan hyv‰ ominaisuus
+   * -p‰iv‰ysten muodot. eli nyt p‰iv‰ykset ovat muodossa mm/dd/yy, mit‰ ei suomessa paljoa k‰ytet‰
+   * -virhedenk‰sittely‰ voitaisiin myˆs v‰h‰n hienos‰‰t‰‰
+   * -poista tapahtumia-ominaisuus ei n‰yt‰ toimivan, en ole paljoa ehtinyt sit‰ muuttaa vanhasta ohjelmasta mist‰ tuon otin. pit‰isi siis voida poistaa tapahtumia p‰iv‰m‰‰r‰n syˆtt‰m‰ll‰
+   * -jotain muutakin muutettavaa on kai, lis‰ill‰‰n t‰nne sitten
    * */
 
     public static void main(String[] args) throws IOException{
         Scanner lukija = new Scanner(System.in);
-      
+        // kalenteri instance
         Kalenteri kalenteri = new Kalenteri();
+        kalenteri.alustaOhjelmanTila();
+        
+        
         String vaihtoehto = "0";
         // main loop
         while (!vaihtoehto.equals("4")) {
             kalenteri.tulostaAlkuvalikko(); 
             System.out.println();
             System.out.println("Valitse toiminnallisuus:");
-            System.out.println("1 - Lis√§√§ tapahtuma");
+            System.out.println("1 - Lis‰‰ tapahtuma");
             System.out.println("2 - Etsi tapahtumia");
             System.out.println("3 - Poista tapahtumia");
             System.out.println("4 - Poistu");
+            
             vaihtoehto = lukija.nextLine();
             System.out.println();
-
+            
             switch (vaihtoehto) {
                 case "1":
                     kalenteri.lisaaTapahtuma();
@@ -63,10 +51,10 @@ public class Testaa {
                     kalenteri.poistaTapahtumia();
                     break;
                 case "4":
-                    System.out.println("Paina n√§pp√§int√§ poistuaksesi sovelluksesta");
+                    System.out.println("Paina n‰pp‰int‰ poistuaksesi sovelluksesta");
                     break;
                 default:
-                    System.out.println("Tapahtui virhe, valitse jokin annetuista vaihtoehdoista sy√∂tt√§m√§lle toiminnolle kuuluva numero");
+                    System.out.println("Tapahtui virhe, valitse jokin annetuista vaihtoehdoista syˆtt‰m‰lle toiminnolle kuuluva numero");
                     break;
             }
         }
