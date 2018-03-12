@@ -10,7 +10,7 @@ import java.io.IOException;
 
 //Käyttäjän kanssa kommunikoiva luokka
 public class Kalenteri {
-  private Tietokanta tietokanta;
+  private Tietokanta tietokanta = new Tietokanta();
 
   private Scanner lukija = new Scanner(System.in);
 
@@ -77,12 +77,16 @@ public class Kalenteri {
     
     //Pyytää käyttäjää syöttämään uuden tapahtuman ja lisää sen tietokantaan
     public void lisaaTapahtuma()throws IOException{
+        Scanner lukija2 = new Scanner(System.in);
         LocalDateTime aika = lueAika();
-        System.out.println("Syötä tapahtuman nimi: ");
-        String nimi = lukija.nextLine();
-        tietokanta.lisaaTapahtuma(aika, nimi);
+        lukija2.nextLine();
+        System.out.println("Anna tapahtuman nimi: ");
+        String nimi = lukija2.nextLine();
+        lukija2.nextLine();
+        System.out.println("Lisää tapahtumaan muistiinpanot: ");
+        String muistiinpanot = lukija2.nextLine();
+        tietokanta.lisaaTapahtuma(aika, nimi, muistiinpanot);
     }
-    //kesken: pitää lisätä myös ne tapahtumaan liityvät muistiinpanot
    
     //Käyttäjä voi metodin avulla etsiä tapahtumia halutulta päiväykseltä
     public void etsiTapahtumia() {
@@ -117,6 +121,9 @@ public class Kalenteri {
         System.out.println("\nHuomisen tapahtumat:\n---------");
         tulostaTapahtumat(LocalDate.now().plusDays(1));
         System.out.println();
+    }
+    public void alustaOhjelmanTila(){
+      tietokanta.alusta();
     }
     
 }

@@ -1,8 +1,9 @@
 package kalenteri;
 import java.time.LocalDateTime;
+import java.io.Serializable;
 
 //Luokka kalenterin tapahtuma-oliolle
-public class Tapahtuma {
+public class Tapahtuma implements Serializable{
 
   //päiväys ja aika
   private LocalDateTime aika;
@@ -10,16 +11,19 @@ public class Tapahtuma {
   //Tapahtuman nimi
   private String nimi;
   
-  //kesken: lisättävä myös muistiinpanot
+  //Tapahtumaan lisätyt muistiinpanot
+  private String muistiinpanot;
+    
   
     /**
      * Konstruktori Tapahtuma-oliolle
      * @param aika päiväys ja aika
      * @param nimi Tapahtuman nimi
      */
-    public Tapahtuma(LocalDateTime aika, String nimi) {
+    public Tapahtuma(LocalDateTime aika, String nimi, String muistiinpanot) {
         this.aika=aika;
         this.nimi=nimi;
+        this.muistiinpanot=muistiinpanot;
     }
  
     /**
@@ -54,12 +58,29 @@ public class Tapahtuma {
         this.nimi=nimi;
     }
  
+
+    /**
+     * Palauttaa tapahtuman nimen
+     * @return Tapahtuman nimi
+     */
+    public String annaMuistiinpanot() {
+        return muistiinpanot;
+    }
+ 
+    /**
+     * Asettaa tapahtuman nimen
+     * @param nimi Tapahtuman nimi
+     */
+    public void asetaMuistiinpanot(String muistiinpanot) {
+        this.muistiinpanot=muistiinpanot;
+    }
+    
     /**
      * Palauttaa tapahtuman nimen ja päiväyksen luettavaan muotoon muokattuna
      * @return Tapahtuman nimi ja päiväys luettavaan muotoon muokattuna
      */
     @Override
     public String toString() {
-        return aika.format(Kalenteri.muotoileAika) + " " + nimi;
+        return aika.format(Kalenteri.muotoileAika) + " " + nimi +": '"+muistiinpanot+"'";
     }
 }
