@@ -1,27 +1,13 @@
 package kalenteri;
-import java.io.Writer;
-import java.io.FileWriter;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+
+import java.nio.*;
+import java.util.*;
+import java.io.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 
-
+//Luokka olioiden tiedostoon tallentamista varten
 public class Tallenna implements Serializable{
+  
 public static void serializeLista(ArrayList<Tapahtuma> lista) {
   FileOutputStream tiedostoTulostus = null;
   ObjectOutputStream olioTulostus = null;
@@ -37,7 +23,7 @@ public static void serializeLista(ArrayList<Tapahtuma> lista) {
   } catch (Exception e) {
     System.out.println("Virhe tiedostonkäsittelyssä");
    e.printStackTrace();
-
+  
   } finally {
    if (tiedostoTulostus != null) {
     try {
