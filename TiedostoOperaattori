@@ -1,0 +1,4 @@
+public abstract class TiedostoOperaattori {
+abstract void serialisoi();
+abstract void deserialisoi();
+}
